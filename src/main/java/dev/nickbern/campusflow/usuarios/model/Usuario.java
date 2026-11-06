@@ -12,7 +12,6 @@ import java.util.List;
 
 @Entity
 @Table(name = "usuarios")
-@AllArgsConstructor
 @NoArgsConstructor
 @Getter @Setter
 public class Usuario {
@@ -27,6 +26,7 @@ public class Usuario {
     @Column(nullable = false, unique = true)
     private String email;
 
+    @Column(nullable = false)
     private String password;
 
     @Enumerated(EnumType.STRING)
@@ -41,4 +41,10 @@ public class Usuario {
     @ManyToMany(mappedBy = "estudiantes")
     private List<Curso> cursosInscritos = new ArrayList<>();
 
+    public Usuario(String name, String email, String password, RolUsuario rol) {
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.rol = rol;
+    }
 }
