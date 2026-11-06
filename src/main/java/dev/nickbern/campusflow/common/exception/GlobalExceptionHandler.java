@@ -34,12 +34,12 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
                 .body(Map.of("error", "La operación entra en conflicto con datos existentes: revisa el email o las relaciones del usuario."));
     }
 
-//    @ExceptionHandler(org.springframework.security.core.AuthenticationException.class)
-//    public ResponseEntity<Map<String, String>> manejarAutenticacion(
-//            org.springframework.security.core.AuthenticationException ex) {
-//        return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
-//                .body(Map.of("error", "Credenciales inválidas"));
-//    }
+    @ExceptionHandler(org.springframework.security.core.AuthenticationException.class)
+    public ResponseEntity<Map<String, String>> manejarAutenticacion(
+            org.springframework.security.core.AuthenticationException ex) {
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                .body(Map.of("error", "Credenciales inválidas"));
+    }
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<Map<String, String>> manejarGeneral(Exception ex) {
