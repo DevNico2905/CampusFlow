@@ -6,7 +6,7 @@ import dev.nickbern.campusflow.usuarios.model.Usuario;
 
 public class UsuarioMapper {
 
-    public UsuarioResponse toResponse(Usuario usuario) {
+    public static UsuarioResponse toResponse(Usuario usuario) {
 
         if (usuario == null) return null;
 
